@@ -6,8 +6,13 @@
     "buy-and-fly": {
       "projectType": "application",
       "schematics": {
+        "@schematics/angular:pipe": {
+          "standalone": true
+        },
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush",
+          "standalone": true
         }
       },
       "root": "",
