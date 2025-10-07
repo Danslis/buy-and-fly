@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 import { FormFor } from '@baf/core';
 import { SearchForm } from '@baf/search/common';
+import { ButtonComponent } from '@baf/ui/buttons';
 
 import { SearchDateComponent } from '../../fields/lib/search-date/search-date.component';
 import { SearchDestinationComponent } from '../../fields/lib/search-destination/search-destination.component';
@@ -43,6 +44,7 @@ const initialForm = new FormGroup<FormFor<SearchForm>>({
     SearchReverseComponent,
     SearchDateComponent,
     SearchPassengersComponent,
+    ButtonComponent
   ],
   templateUrl: './search-form.component.html',
   styleUrl: './search-form.component.scss',
@@ -51,4 +53,6 @@ const initialForm = new FormGroup<FormFor<SearchForm>>({
 
 export class SearchFormComponent {
   readonly form = initialForm;
+
+  onSubmit(): void { }
 }
