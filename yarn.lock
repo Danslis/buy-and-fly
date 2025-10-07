@@ -385,6 +385,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular/cdk@npm:^20.1.0":
+  version: 20.2.7
+  resolution: "@angular/cdk@npm:20.2.7"
+  dependencies:
+    parse5: "npm:^8.0.0"
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    "@angular/common": ^20.0.0 || ^21.0.0
+    "@angular/core": ^20.0.0 || ^21.0.0
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: 10c0/4bda83f35d19a2a64073570637d08e22f41573c1eb8bdcb64ffdbdd1a29b9875ac0af72aab2e132088c31a3f76d815e743983bff090733401d67ed32fc825ac0
+  languageName: node
+  linkType: hard
+
 "@angular/cli@npm:^20.1.1":
   version: 20.3.2
   resolution: "@angular/cli@npm:20.3.2"
@@ -2976,6 +2990,7 @@ __metadata:
   resolution: "buy-and-fly@workspace:."
   dependencies:
     "@angular/build": "npm:^20.1.1"
+    "@angular/cdk": "npm:^20.1.0"
     "@angular/cli": "npm:^20.1.1"
     "@angular/common": "npm:^20.1.0"
     "@angular/compiler": "npm:^20.1.0"
