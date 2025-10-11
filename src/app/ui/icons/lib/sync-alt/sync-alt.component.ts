@@ -3,12 +3,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
-  selector: 'baf-icon-logo',
+  selector: 'baf-sync-alt',
   standalone: true,
   imports: [IconComponent],
-  templateUrl: './logo.component.html',
-  styleUrl: './logo.component.scss',
+  templateUrl: './sync-alt.component.html',
+  styleUrl: './sync-alt.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
-export class LogoComponent { }
+export class SyncAltComponent { }
