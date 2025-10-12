@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { FormFor } from '@baf/core';
-import { SearchForm } from '@baf/search/common';
+import { SearchFormGroup } from '@baf/search/common';
 import { ButtonComponent } from '@baf/ui/buttons';
 
 import { SearchDateComponent } from '../../fields/lib/search-date/search-date.component';
@@ -11,7 +10,7 @@ import { SearchGroupComponent } from '../../fields/lib/search-group/search-group
 import { SearchPassengersComponent } from '../../fields/lib/search-passengers/search-passengers.component';
 import { SearchReverseComponent } from '../../fields/lib/search-reverse/search-reverse.component';
 
-const initialForm = new FormGroup<FormFor<SearchForm>>({
+const initialForm: SearchFormGroup = new FormGroup({
   from: new FormControl<string>('', {
     nonNullable: true,
     validators: [Validators.required],
