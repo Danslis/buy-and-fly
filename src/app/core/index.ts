@@ -1,6 +1,7 @@
 export * from './lib/api/api.service';
 export * from './lib/api/api.util';
 export * from './lib/coercoin/coercoin';
+export * from './lib/env/environment';
 export * from './lib/form/form';
 export * from './lib/interceptors/provide';
 export * from './lib/utils/sort.util';
