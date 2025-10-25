@@ -10,6 +10,7 @@ import { SearchDestinationComponent } from '../../fields/lib/search-destination/
 import { SearchGroupComponent } from '../../fields/lib/search-group/search-group.component';
 import { SearchPassengersComponent } from '../../fields/lib/search-passengers/search-passengers.component';
 import { SearchReverseComponent } from '../../fields/lib/search-reverse/search-reverse.component';
+import { SearchAutocompleteComponent } from './search-autocomplete/search-autocomplete.component';
 
 const initialForm: SearchFormGroup = new FormGroup({
   from: new FormControl<string>('', {
@@ -44,7 +45,8 @@ const initialForm: SearchFormGroup = new FormGroup({
     SearchReverseComponent,
     SearchDateComponent,
     SearchPassengersComponent,
-    ButtonComponent
+    ButtonComponent,
+    SearchAutocompleteComponent,
   ],
   templateUrl: './search-form.component.html',
   styleUrl: './search-form.component.scss',
