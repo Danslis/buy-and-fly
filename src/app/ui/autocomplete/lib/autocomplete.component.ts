@@ -1,6 +1,6 @@
 import { OverlayModule } from '@angular/cdk/overlay';
 import { AsyncPipe, NgForOf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, Input, signal, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, signal, ViewChild } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 
@@ -11,6 +11,7 @@ export interface SearchAutocompleteOptions {
   readonly label: string;
   readonly placeholder?: string;
   readonly id: string;
+  readonly key?: string;
 }
 
 @Component({
@@ -25,7 +26,9 @@ export class AutocompleteComponent {
   @Input({ required: true }) control!: FormControl<string>;
   @Input({ required: true }) options!: SearchAutocompleteOptions;
   // TODO: Change interface
-  @Input({ required: true }) options$!: Observable<SearchCityOrAirport[]>;
+  @Input({ required: true }) options$!: Observable<Record<string, unknown>[]>;
+
+  @Output() changed = new EventEmitter<string>();
 
   @ViewChild('input', { read: ElementRef, static: true }) input!: ElementRef<HTMLInputElement>;
 
@@ -33,6 +36,10 @@ export class AutocompleteComponent {
 
   get width(): string {
     return this.input?.nativeElement.clientWidth > 200 ? `${this.input.nativeElement.clientWidth}px` : '200px';
+  }
+
+  get key(): string {
+    return this.options.key ?? 'code';
   }
 
   onOpen(): void {
@@ -43,5 +50,9 @@ export class AutocompleteComponent {
 
   onClose(): void {
     this.opened.set(false);
+  }
+
+  onInput(event: Event): void {
+    this.changed.emit((event.target as HTMLInputElement).value);
   }
 }

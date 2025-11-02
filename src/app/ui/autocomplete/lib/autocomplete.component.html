@@ -1,11 +1,11 @@
 <input #input baf-input type="text" [formControl]="control" [placeholder]="options.placeholder ?? options.label"
-  cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="onOpen()" />
+  cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="onOpen()" (input)="onInput($event)" />
 
 <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="opened()"
   [cdkConnectedOverlayWidth]="width" [cdkConnectedOverlayOffsetY]="1" (overlayOutsideClick)="onClose()">
   <div class="autocomplete-overlay">
     <div *ngFor="let option of options$ | async">
-      {{ option.code }}
+      {{ option[key] }}
     </div>
   </div>
 </ng-template>
