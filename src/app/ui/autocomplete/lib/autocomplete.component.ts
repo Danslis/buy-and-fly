@@ -1,17 +1,19 @@
 import { OverlayModule } from '@angular/cdk/overlay';
 import { AsyncPipe, NgForOf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, signal, ViewChild } from '@angular/core';
+
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, signal, ViewChild } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 import { SearchCityOrAirport } from '@baf/search/common';
 import { InputComponent } from '@baf/ui/input';
 
-export interface SearchAutocompleteOptions {
+export interface AutocompleteOptions {
   readonly label: string;
   readonly placeholder?: string;
   readonly id: string;
-  readonly key?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  readonly displayFn: (item: any, index?: number) => string;
 }
 
 @Component({
@@ -22,34 +24,40 @@ export interface SearchAutocompleteOptions {
   styleUrl: './autocomplete.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AutocompleteComponent {
+export class AutocompleteComponent implements OnInit {
   @Input({ required: true }) control!: FormControl<string>;
-  @Input({ required: true }) options!: SearchAutocompleteOptions;
-  // TODO: Change interface
-  @Input({ required: true }) options$!: Observable<Record<string, unknown>[]>;
+  @Input({ required: true }) options!: AutocompleteOptions;
+
+  @Input({ required: true }) data!: Observable<unknown[]>;
 
   @Output() changed = new EventEmitter<string>();
+  @Output() opened = new EventEmitter<void>();
+  @Output() closed = new EventEmitter<void>();
 
   @ViewChild('input', { read: ElementRef, static: true }) input!: ElementRef<HTMLInputElement>;
 
-  readonly opened = signal<boolean>(false);
+  readonly open = signal<boolean>(false);
 
   get width(): string {
     return this.input?.nativeElement.clientWidth > 200 ? `${this.input.nativeElement.clientWidth}px` : '200px';
   }
 
-  get key(): string {
-    return this.options.key ?? 'code';
+  displayFn!: (item: unknown, index?: number) => string;
+
+  ngOnInit(): void {
+    this.displayFn = this.options.displayFn;
   }
 
   onOpen(): void {
-    if (!this.opened()) {
-      this.opened.set(true);
+    if (!this.open()) {
+      this.open.set(true);
+      this.opened.emit();
     }
   }
 
   onClose(): void {
-    this.opened.set(false);
+    this.open.set(false);
+    this.closed.emit();
   }
 
   onInput(event: Event): void {
