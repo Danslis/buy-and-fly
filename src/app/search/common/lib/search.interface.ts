@@ -65,6 +65,7 @@ export interface SearchCityOrAirportDTO {
 }
 
 export interface SearchCityOrAirport {
+  readonly id: string;
   readonly type: string;
   readonly code: string;
   readonly name: string;

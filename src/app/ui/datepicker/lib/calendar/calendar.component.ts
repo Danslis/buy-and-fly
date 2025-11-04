@@ -1,4 +1,5 @@
-import { DatePipe, NgForOf } from '@angular/common';
+
+import { AsyncPipe, DatePipe, NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { IconButtonComponent } from '@baf/ui/buttons';
@@ -23,7 +24,7 @@ export interface CalendarSelected {
 @Component({
   selector: 'baf-calendar',
   standalone: true,
-  imports: [DatePipe, NgForOf, CalendarDaysPipe, IconButtonComponent, ChevronLeftComponent, ChevronRightComponent],
+  imports: [DatePipe, NgForOf, CalendarDaysPipe, IconButtonComponent, ChevronLeftComponent, ChevronRightComponent, AsyncPipe],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -39,17 +40,17 @@ export class CalendarComponent {
   config: CalendarConfig = this.getConfig();
 
   getConfig(date?: string | Date, active?: number): CalendarConfig {
-    const currentDate = date ? new Date(date) : new Date();
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
+    const selectedDate = date ? new Date(date) : new Date();
+    const year = selectedDate.getFullYear();
+    const month = selectedDate.getMonth();
 
     return {
-      date: currentDate,
+      date: selectedDate,
       year,
       month,
       firstDay: new Date(year, month, 1),
       lastDay: new Date(year, month + 1, 0),
-      active,
+      active: active,
     };
   }
 
@@ -60,7 +61,7 @@ export class CalendarComponent {
       year = year - 1;
     }
     month = month - 1;
-    this.config = this.getConfig(new Date(year, month, 1), this.config.active);
+    this.config = this.getConfig(new Date(year, month, 1));
   }
 
   onNext(): void {
@@ -70,7 +71,7 @@ export class CalendarComponent {
       year = year + 1;
     }
     month = month + 1;
-    this.config = this.getConfig(new Date(year, month, 1), this.config.active);
+    this.config = this.getConfig(new Date(year, month, 1));
   }
 
   onSelect(day: number): void {
