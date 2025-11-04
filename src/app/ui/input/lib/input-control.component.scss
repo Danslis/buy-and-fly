@@ -21,71 +21,32 @@
     }
   }
 
-  // Fucked encapsulation
-  ::ng-deep {
-    .baf-input-prefix {
-      margin-left: 12px;
-    }
-
-    .baf-input-suffix {
-      margin-right: 12px;
-    }
-
-    .baf-input-native {
-      display: block;
-      background-color: transparent;
-      height: 100%;
-      width: 100%;
-      padding: 0;
-      border: none;
-      outline: none;
-
-      &:hover,
-      &:focus,
-      &:active {
-        outline: none;
-      }
-
-      &::placeholder {
-        color: var(--md-sys-color-on-surface-variant);
-      }
-    }
+  .input-box {
+    position: relative;
+    margin: 0 16px;
+    justify-content: center;
+    height: 100%;
+    flex-grow: 1;
   }
 
-  &.is-invalid {
-    ::ng-deep .baf-input-native {
-      color: red;
-    }
+  .input-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+    border-radius: var(--md-sys-shape-corner-extra-small-top);
+    height: 3rem;
   }
-}
 
-
-
-.input-box {
-  position: relative;
-  margin: 0 16px;
-  justify-content: center;
-  height: 100%;
-  flex-grow: 1;
-}
-
-.input-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  background-color: var(--md-sys-color-surface-variant);
-  color: var(--md-sys-color-on-surface-variant);
-  border-radius: var(--md-sys-shape-corner-extra-small-top);
-  height: 3rem;
-}
-
-.input {
-  opacity: 0;
-  height: 100%;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-  transition: opacity 0.1s;
-  padding: 12px 0 0 0;
+  .input {
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.1s;
+    padding: 12px 0 0 0;
+  }
 }

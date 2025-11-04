@@ -1,13 +1,37 @@
-:host {
-  width: 100%;
-  height: 3rem;
-  border: none;
-  background-color: var(--md-sys-color-surface-variant);
-  color: var(--md-sys-color-on-surface-variant);
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+// :host {
+//   width: 100%;
+//   height: 3rem;
+//   border: none;
+//   background-color: var(--md-sys-color-surface-variant);
+//   color: var(--md-sys-color-on-surface-variant);
+//   padding: 0.5rem 1rem;
+//   border-radius: 0.25rem;
 
-  &:focus {
+//   &:focus {
+//     outline: none;
+//   }
+// }
+
+:host {
+  display: block;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+
+  &:hover,
+  &:focus,
+  &:active {
     outline: none;
+  }
+
+  &::placeholder {
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  :host-context(.is-invalid) {
+    color: var(--md-sys-color-error);
   }
 }
