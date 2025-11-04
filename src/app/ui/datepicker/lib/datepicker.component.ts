@@ -1,5 +1,4 @@
 import { CdkConnectedOverlay, CdkOverlayOrigin } from '@angular/cdk/overlay';
-import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, signal, ViewChild } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -15,7 +14,7 @@ export interface DatepickerOptions {
 @Component({
   selector: 'baf-datepicker',
   standalone: true,
-  imports: [ReactiveFormsModule, CdkConnectedOverlay, CdkOverlayOrigin, InputComponent, AsyncPipe, InputControlComponent, LabelComponent],
+  imports: [ReactiveFormsModule, CdkConnectedOverlay, CdkOverlayOrigin, InputComponent, InputControlComponent, LabelComponent],
   templateUrl: './datepicker.component.html',
   styleUrl: './datepicker.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-import { InputComponent } from '@baf/ui/input';
+import { DatepickerComponent } from '@baf/ui/datepicker';
 
 
 export interface SearchDateOptions {
@@ -14,7 +14,7 @@ export interface SearchDateOptions {
 @Component({
   selector: 'baf-search-date',
   standalone: true,
-  imports: [ReactiveFormsModule, InputComponent],
+  imports: [ReactiveFormsModule, DatepickerComponent],
   templateUrl: './search-date.component.html',
   styleUrl: './search-date.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
