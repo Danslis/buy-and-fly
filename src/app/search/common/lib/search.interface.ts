@@ -1,39 +1,6 @@
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
-import { FormFor } from '@baf/core';
-
-export interface SearchForm {
-  readonly from: string;
-  readonly to: string;
-  readonly startDate: string;
-  readonly endDate: string;
-  readonly passengers: number;
-}
-
-export type SearchFormGroup = FormGroup<FormFor<SearchForm>>;
-
-export const initialSearchForm: SearchFormGroup = new FormGroup({
-  from: new FormControl<string>('', {
-    nonNullable: true,
-    validators: [Validators.required],
-  }),
-  to: new FormControl<string>('', {
-    nonNullable: true,
-    validators: [Validators.required],
-  }),
-  startDate: new FormControl<string>('', {
-    nonNullable: true,
-    validators: [Validators.required],
-  }),
-  endDate: new FormControl<string>('', {
-    nonNullable: true,
-    validators: [],
-  }),
-  passengers: new FormControl<number>(1, {
-    nonNullable: true,
-    validators: [Validators.required, Validators.min(1), Validators.max(20)],
-  }),
-});
+import { FormFor } from "@baf/core";
 
 export interface SearchDeclination {
   readonly vi: string;
@@ -45,6 +12,7 @@ export interface SearchDeclination {
 }
 
 export interface SearchCityOrAirportDTO {
+  readonly [key: string]: unknown;
   readonly id: string;
   readonly type: string;
   readonly code: string;
@@ -72,3 +40,48 @@ export interface SearchCityOrAirport {
   readonly country_name: string;
   readonly city_name: string;
 }
+
+export interface SearchForm {
+
+
+  readonly from: string | SearchCityOrAirport;
+
+
+  readonly to: string | SearchCityOrAirport;
+
+
+  readonly startDate: string;
+
+
+  readonly endDate: string;
+
+
+  readonly passengers: number;
+
+
+}
+
+export type SearchFormGroup = FormGroup<FormFor<SearchForm>>;
+
+export const initialSearchForm: SearchFormGroup = new FormGroup({
+  from: new FormControl<string | SearchCityOrAirport>('', {
+    nonNullable: true,
+    validators: [Validators.required],
+  }),
+  to: new FormControl<string | SearchCityOrAirport>('', {
+    nonNullable: true,
+    validators: [Validators.required],
+  }),
+  startDate: new FormControl<string>('', {
+    nonNullable: true,
+    validators: [Validators.required],
+  }),
+  endDate: new FormControl<string>('', {
+    nonNullable: true,
+    validators: [],
+  }),
+  passengers: new FormControl<number>(1, {
+    nonNullable: true,
+    validators: [Validators.required, Validators.min(1), Validators.max(20)],
+  }),
+});
