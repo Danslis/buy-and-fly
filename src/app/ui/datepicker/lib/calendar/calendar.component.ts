@@ -19,6 +19,7 @@ export interface CalendarConfig {
 export interface CalendarSelected {
   readonly day: number;
   readonly date: Date;
+  readonly format: string;
 }
 
 @Component({
@@ -84,6 +85,17 @@ export class CalendarComponent {
   onSelect(day: number): void {
     const date = new Date(this.config.year, this.config.month, day);
     this.config = this.getConfig(date, day);
-    this.selected.emit({ day, date });
+
+    const res = {
+      day: date.getDate(),
+      month: date.getMonth() + 1,
+      year: date.getFullYear(),
+    };
+
+    this.selected.emit({
+      day,
+      date,
+      format: `${res.day.toString().padStart(2, '0')}.${res.month.toString().padStart(2, '0')}.${res.year}`,
+    });
   }
 }

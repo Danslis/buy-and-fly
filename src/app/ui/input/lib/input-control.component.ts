@@ -33,8 +33,7 @@ export class InputControlComponent implements AfterViewInit, OnDestroy {
   readonly elementRef: ElementRef<HTMLInputElement> = inject(ElementRef);
   readonly renderer = inject(Renderer2);
 
-  @ContentChild(LabelComponent) label?: LabelComponent;
-  @ContentChild(InputComponent) input?: InputComponent;
+  @ContentChild(InputComponent) input!: InputComponent;
 
   private isDisabled = false;
 
@@ -43,6 +42,7 @@ export class InputControlComponent implements AfterViewInit, OnDestroy {
       this.input.elementRef.nativeElement.addEventListener('click', this.onFocusin);
       this.input.elementRef.nativeElement.addEventListener('focusout', this.onFocusout);
       this.input.elementRef.nativeElement.addEventListener('input', this.onInput);
+      this.input.elementRef.nativeElement.addEventListener('change', this.onInput);
       this.onInput({ target: this.input.elementRef.nativeElement });
       this.input.ngControl.valueChanges
         ?.pipe(
@@ -50,6 +50,7 @@ export class InputControlComponent implements AfterViewInit, OnDestroy {
             if (!this.input?.ngControl.value && this.elementRef.nativeElement.classList.contains('is-value')) {
               this.renderer.removeClass(this.elementRef.nativeElement, 'is-value');
             }
+            this.onInput({ target: this.input.elementRef.nativeElement });
           }),
           takeUntilDestroyed(this.destroyRef),
         )
@@ -66,7 +67,7 @@ export class InputControlComponent implements AfterViewInit, OnDestroy {
         )
         .subscribe();
     } else {
-      console.warn('Input[fafnInput] not found. Add child <input fafnInput /> in <fafn-input-control></fafn-input-control>');
+      console.warn('Input[baf-input] not found. Add child <input baf-input /> in <baf-input-control></baf-input-control>');
     }
   }
 
@@ -75,6 +76,7 @@ export class InputControlComponent implements AfterViewInit, OnDestroy {
       this.input.elementRef.nativeElement.removeEventListener('click', this.onFocusin);
       this.input.elementRef.nativeElement.removeEventListener('focusout', this.onFocusout);
       this.input.elementRef.nativeElement.removeEventListener('input', this.onInput);
+      this.input.elementRef.nativeElement.removeEventListener('change', this.onInput);
     }
   }
 
