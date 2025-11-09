@@ -1,11 +1,11 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 
-import { ExtraSize } from '@baf/ui/utils';
+import type { ExtraSize } from './types';
 
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: '[size]',
+  selector: '[bafSize]',
   standalone: true,
+  providers: [],
 })
 export class ExtraSizeDirective {
   @Input() size: ExtraSize = 'medium';

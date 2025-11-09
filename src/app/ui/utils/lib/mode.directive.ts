@@ -1,13 +1,11 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 
-import { ButtonMode } from '@baf/ui/utils';
-
-
+import type { ButtonMode } from './types';
 
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: '[mode]',
+  selector: '[bafMode]',
   standalone: true,
+  providers: [],
 })
 export class ModeDirective {
   @Input() mode: ButtonMode = 'primary';
