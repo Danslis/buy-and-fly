@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, HostBinding, inject, Input, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { BehaviorSubject, debounceTime, EMPTY, of, switchMap, tap } from 'rxjs';
 
 import { SearchCityOrAirport } from '@baf/search/common';
 import { SearchService } from '@baf/search/services';
 import { AutocompleteComponent, AutocompleteOptions } from '@baf/ui/autocomplete';
+import { InputComponent } from '@baf/ui/input';
 
 export interface SearchDestinationOptions {
   readonly label: string;
@@ -16,7 +17,7 @@ export interface SearchDestinationOptions {
 @Component({
   selector: 'baf-search-destination',
   standalone: true,
-  imports: [ReactiveFormsModule, AutocompleteComponent],
+  imports: [InputComponent, AutocompleteComponent],
   templateUrl: './search-destination.component.html',
   styleUrl: './search-destination.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
