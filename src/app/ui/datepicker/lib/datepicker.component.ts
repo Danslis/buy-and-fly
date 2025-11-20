@@ -1,5 +1,4 @@
 import { CdkConnectedOverlay, CdkOverlayOrigin } from '@angular/cdk/overlay';
-import { AsyncPipe } from '@angular/common';
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, inject, Input, Output, signal, ViewChild } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +22,6 @@ export interface DatepickerOptions {
     CdkConnectedOverlay,
     CdkOverlayOrigin,
     InputComponent,
-    AsyncPipe,
     InputControlComponent,
     LabelComponent,
     CalendarComponent,

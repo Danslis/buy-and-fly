@@ -29,7 +29,6 @@ export interface AutocompleteOptions {
     CdkConnectedOverlay,
     CdkOverlayOrigin,
     InputComponent,
-    NgForOf,
     AsyncPipe,
     InputControlComponent,
     InputDisplayDirective,
