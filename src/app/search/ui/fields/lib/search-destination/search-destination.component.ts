@@ -6,7 +6,6 @@ import { BehaviorSubject, debounceTime, EMPTY, of, switchMap, tap } from 'rxjs';
 import { SearchCityOrAirport } from '@baf/search/common';
 import { SearchService } from '@baf/search/services';
 import { AutocompleteComponent, AutocompleteOptions } from '@baf/ui/autocomplete';
-import { InputComponent } from '@baf/ui/input';
 
 export interface SearchDestinationOptions {
   readonly label: string;
@@ -17,7 +16,7 @@ export interface SearchDestinationOptions {
 @Component({
   selector: 'baf-search-destination',
   standalone: true,
-  imports: [InputComponent, AutocompleteComponent],
+  imports: [AutocompleteComponent],
   templateUrl: './search-destination.component.html',
   styleUrl: './search-destination.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

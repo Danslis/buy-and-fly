@@ -4,13 +4,18 @@
 
 :host {
   @include size.make-size() using ($size) {
-    @if $size == small {
+    @if $size ==small {
       @include typography.headline-small();
-    } @else if $size == medium {
+    }
+
+    @else if $size ==medium {
       @include typography.headline-medium();
-    } @else if $size == large {
+    }
+
+    @else if $size ==large {
       @include typography.headline-large();
     }
   }
-  @include align.make-align();
+
+  @include align.align();
 }
