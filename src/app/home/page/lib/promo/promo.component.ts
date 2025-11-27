@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { SearchTabsComponent } from 'src/app/search/ui/tabs';
 
 import { SearchFormComponent } from '@baf/search/ui/form';
-import { SearchMenuComponent } from '@baf/search/ui/menu';
 import { HeadlineComponent } from '@baf/ui/headline';
 
 
 @Component({
   selector: 'baf-promo',
   standalone: true,
-  imports: [SearchFormComponent, SearchMenuComponent, HeadlineComponent],
+  imports: [SearchFormComponent, SearchTabsComponent, HeadlineComponent],
   templateUrl: './promo.component.html',
   styleUrl: './promo.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
