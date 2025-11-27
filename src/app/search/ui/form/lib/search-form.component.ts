@@ -2,13 +2,14 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { initialSearchForm } from '@baf/search/common';
 import { SearchService } from '@baf/search/services';
+import {
+  SearchDateComponent,
+  SearchDestinationComponent,
+  SearchGroupComponent,
+  SearchPassengersComponent,
+  SearchReverseComponent,
+} from '@baf/search/ui/fields';
 import { ButtonComponent } from '@baf/ui/buttons';
-
-import { SearchDateComponent } from '../../fields/lib/search-date/search-date.component';
-import { SearchDestinationComponent } from '../../fields/lib/search-destination/search-destination.component';
-import { SearchGroupComponent } from '../../fields/lib/search-group/search-group.component';
-import { SearchPassengersComponent } from '../../fields/lib/search-passengers/search-passengers.component';
-import { SearchReverseComponent } from '../../fields/lib/search-reverse/search-reverse.component';
 
 
 @Component({
