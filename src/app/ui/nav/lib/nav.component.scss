@@ -14,9 +14,23 @@ a {
   padding: 0.5rem 0.75rem;
   border-radius: 0.125rem;
 
-  &:hover,
+  color: var(--md-sys-color-on-surface-variant);
+
+  span {
+    padding: 0 0.25rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    color: var(--md-sys-color-outline);
+  }
+
   &.is-active {
     background-color: var(--md-sys-color-surface-variant);
     color: var(--md-sys-color-on-surface-variant);
+
+    span {
+      display: block;
+      background-color: var(--md-sys-color-tertiary-container);
+      color: var(--md-sys-color-on-tertiary);
+    }
   }
 }
