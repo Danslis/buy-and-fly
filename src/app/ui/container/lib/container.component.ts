@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+import { AlignDirective } from '@baf/ui/utils';
+
 import { FluidDirective } from './fluid.directive';
 import { MobileDirective } from './mobile.directive';
-import { AlignDirective } from '@baf/ui/utils';
 
 @Component({
   selector: 'baf-container',

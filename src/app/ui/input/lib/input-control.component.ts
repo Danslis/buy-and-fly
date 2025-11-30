@@ -13,8 +13,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControlStatus } from '@angular/forms';
 import { startWith, tap } from 'rxjs';
 
-import { LabelComponent } from '@baf/ui/label';
-
 import { InputComponent } from './input.component';
 
 @Component({
