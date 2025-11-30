@@ -22,8 +22,8 @@
         "sourceLocale": "en-US",
         "locales": {
           "ru": {
-            "translation": "src/i18n/messages.xlf",
-            "baseHref": ""
+            "subPath": "ru",
+            "translation": "src/i18n/messages.xlf"
           }
         }
       },
@@ -45,6 +45,9 @@
             ],
             "styles": [
               "src/styles.scss"
+            ],
+            "polyfills": [
+              "@angular/localize/init"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",

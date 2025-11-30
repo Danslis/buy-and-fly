@@ -1,5 +1,8 @@
 export const PATHS = {
   home: '',
+  homeHotels: 'hotels',
+  homeTours: 'tours',
+  homeRailways: 'railways',
   rules: 'rules',
   terms: 'terms',
   documents: 'documents',
@@ -9,9 +12,9 @@ export const PATHS = {
   permissionDenied: 'permission-denied',
   search: 'search',
   searchAvia: 'search/avia',
-  searchHotel: 'search/hotel',
-  searchTour: 'search/tour',
-  searchRailway: 'search/railway',
+  searchHotel: 'search/hotels',
+  searchTour: 'search/tours',
+  searchRailway: 'search/railways',
 } as const;
 
 export type PathValues = (typeof PATHS)[keyof typeof PATHS];
