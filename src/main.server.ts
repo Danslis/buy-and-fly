@@ -1,3 +1,5 @@
+/// <reference types="@angular/localize" />
+
 import { bootstrapApplication, BootstrapContext } from '@angular/platform-browser';
 import * as dotenv from 'dotenv';
 

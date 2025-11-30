@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { FluidDirective } from './fluid.directive';
 import { MobileDirective } from './mobile.directive';
+import { AlignDirective } from '@baf/ui/utils';
 
 @Component({
   selector: 'baf-container',
@@ -20,7 +21,11 @@ import { MobileDirective } from './mobile.directive';
     {
       directive: MobileDirective,
       inputs: ['mobile'],
-    }
+    },
+    {
+      directive: AlignDirective,
+      inputs: ['align'],
+    },
   ],
 })
 export class ContainerComponent { }
