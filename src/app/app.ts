@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'baf-root',
   imports: [RouterOutlet],
-  template: '<router-outlet></router-outlet>',
+  template: '<router-outlet/>',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
