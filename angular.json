@@ -75,6 +75,10 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            // ДОБАВЬТЕ ЭТУ КОНФИГУРАЦИЮ:
+            "ru": {
+              "localize": ["ru"]
             }
           },
           "defaultConfiguration": "production"
@@ -90,6 +94,10 @@
             },
             "development": {
               "buildTarget": "buy-and-fly:build:development"
+            },
+            // ДОБАВЬТЕ ЭТУ КОНФИГУРАЦИЮ:
+            "ru": {
+              "buildTarget": "buy-and-fly:build:ru"
             }
           },
           "defaultConfiguration": "development"
