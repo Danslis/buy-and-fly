@@ -52,7 +52,9 @@
       "@baf/search/avia/common": ["src/app/search/avia/common/index.ts"],
       "@baf/search/avia/ui/form": ["src/app/search/avia/ui/form/index.ts"],
       "@baf/search/services": ["src/app/search/services/index.ts"],
-      "@baf/search/ui/fields": ["src/app/search/ui/fields/index.ts"]
+      "@baf/search/ui/fields": ["src/app/search/ui/fields/index.ts"],
+      "@baf/search/hotels/common": ["src/app/search/hotels/common/index.ts"],
+      "@baf/search/hotels/ui/form": ["src/app/search/hotels/ui/form/index.ts"]
     }
   },
   "angularCompilerOptions": {
