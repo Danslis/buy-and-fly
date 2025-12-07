@@ -29,7 +29,7 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "@angular-builders/custom-esbuild:application",
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
@@ -53,7 +53,8 @@
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+            "indexHtmlTransformer": "./esbuild/html.transformer.ts"
           },
           "configurations": {
             "production": {
@@ -76,7 +77,6 @@
               "extractLicenses": false,
               "sourceMap": true
             },
-            // ДОБАВЬТЕ ЭТУ КОНФИГУРАЦИЮ:
             "ru": {
               "localize": ["ru"]
             }
@@ -84,7 +84,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "@angular-builders/custom-esbuild:dev-server",
           "options": {
             "proxyConfig": "src/proxy.conf.json"
           },
@@ -95,7 +95,6 @@
             "development": {
               "buildTarget": "buy-and-fly:build:development"
             },
-            // ДОБАВЬТЕ ЭТУ КОНФИГУРАЦИЮ:
             "ru": {
               "buildTarget": "buy-and-fly:build:ru"
             }
