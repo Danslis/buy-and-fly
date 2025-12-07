@@ -1,6 +1,6 @@
 import { CdkConnectedOverlay, CdkOverlayOrigin } from '@angular/cdk/overlay';
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, inject, Input, Output, signal, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, input, output, signal, viewChild } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { InputComponent, InputControlComponent, InputMaskDirective } from '@baf/ui/input';
@@ -37,13 +37,14 @@ export interface DatepickerOptions {
 export class DatepickerComponent {
   private readonly document = inject(DOCUMENT);
 
-  @Input({ required: true }) control!: FormControl<string>;
-  @Input({ required: true }) options!: DatepickerOptions;
-  @Output() changed = new EventEmitter<string>();
-  @Output() opened = new EventEmitter<void>();
-  @Output() closed = new EventEmitter<void>();
+  readonly control = input.required<FormControl<string>>();
+  readonly options = input.required<DatepickerOptions>();
 
-  @ViewChild('input', { read: ElementRef, static: true }) input!: ElementRef<HTMLInputElement>;
+  readonly changed = output<string>();
+  readonly opened = output();
+  readonly closed = output();
+
+  readonly input = viewChild('input', { read: ElementRef<HTMLInputElement> });
 
   get width(): string {
     return this.document.body.clientWidth > 360 ? `360px` : '280px';
@@ -68,7 +69,7 @@ export class DatepickerComponent {
   }
 
   onSelected(option: CalendarSelected): void {
-    this.control.patchValue(option.format);
+    this.control().patchValue(option.format);
     this.closed.emit();
     this.open.set(false);
   }

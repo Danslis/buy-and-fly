@@ -1,4 +1,4 @@
-import { Directive, ElementRef, forwardRef, HostListener, inject, Input } from '@angular/core';
+import { Directive, ElementRef, forwardRef, HostListener, inject, input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { ChangeFn, DisplayFn, TouchedFn } from '@baf/core';
@@ -18,7 +18,7 @@ import { ChangeFn, DisplayFn, TouchedFn } from '@baf/core';
 export class InputDisplayDirective implements ControlValueAccessor {
   private readonly elementRef = inject(ElementRef<HTMLInputElement>);
 
-  @Input({ required: true }) display!: DisplayFn;
+   readonly display = input.required<DisplayFn>();
 
   onChange!: ChangeFn;
   onTouched!: TouchedFn;
@@ -33,7 +33,7 @@ export class InputDisplayDirective implements ControlValueAccessor {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   writeValue(value: any): void {
-    this.elementRef.nativeElement.value = this.display(value);
+    this.elementRef.nativeElement.value = this.display()(value);
   }
 
   @HostListener('blur') onBlur(): void {
@@ -42,7 +42,7 @@ export class InputDisplayDirective implements ControlValueAccessor {
 
   @HostListener('input', ['$event']) onInput(event: Event): void {
     const { value } = event.target as HTMLInputElement;
-    this.elementRef.nativeElement.value = this.display(value);
+    this.elementRef.nativeElement.value = this.display()(value);
     this.onChange(value);
   }
 }
