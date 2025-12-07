@@ -8,7 +8,7 @@ import type { ButtonMode } from './types';
   providers: [],
 })
 export class ModeDirective {
-   readonly mode = input<ButtonMode>('primary');
+   readonly mode = input<ButtonMode>('primary', { alias: 'bafMode' });
 
   @HostBinding('class.mode-primary') get isModePrimary() {
     return this.mode() === 'primary';
