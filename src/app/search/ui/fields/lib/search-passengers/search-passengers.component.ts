@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { InputComponent, InputControlComponent } from '@baf/ui/input';
@@ -20,6 +20,6 @@ export interface SearchPassengersOptions {
 })
 
 export class SearchPassengersComponent {
-  @Input({ required: true }) control!: FormControl<number | undefined>;
-  @Input({ required: true }) options!: SearchPassengersOptions;
+  readonly control = input.required<FormControl<number | undefined>>();
+  readonly options = input.required<SearchPassengersOptions>();
 }
