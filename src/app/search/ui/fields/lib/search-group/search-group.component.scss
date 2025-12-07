@@ -18,6 +18,10 @@
   @include device.media-web() {
     flex-direction: row;
 
+    &.is-single {
+      flex-grow: 100;
+    }
+
     &.is-line {
       gap: 0;
     }
