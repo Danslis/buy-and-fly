@@ -1,4 +1,4 @@
-import { Directive, HostBinding, Input } from '@angular/core';
+import { Directive, HostBinding, input } from '@angular/core';
 
 import { coerceBooleanProperty } from '@baf/core';
 
@@ -7,9 +7,9 @@ import { coerceBooleanProperty } from '@baf/core';
   standalone: true,
 })
 export class MobileDirective {
-  @Input() mobile: boolean | string | undefined | null;
+   readonly mobile = input<boolean | string | undefined | null>();
 
   @HostBinding('class.mobile-no-gutter') get isMobile() {
-    return coerceBooleanProperty(this.mobile);
+    return coerceBooleanProperty(this.mobile());
   }
 }
