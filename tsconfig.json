@@ -33,6 +33,7 @@
       ],
       "@baf/errors/ui/links": ["src/app/errors/ui/links/index.ts"],
       "@baf/core": ["src/app/core/index.ts"],
+      "@baf/development/page": ["src/app/development/page/index.ts"],
       "@baf/home/page": ["src/app/home/page/index.ts"],
       "@baf/search/page": ["src/app/search/page/index.ts"],
       "@baf/search/ui/form": ["src/app/search/ui/form/index.ts"],
