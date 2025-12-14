@@ -5,17 +5,7 @@
   "projects": {
     "buy-and-fly": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:pipe": {
-          "standalone": true
-        },
-        "@schematics/angular:component": {
-          "style": "scss",
-          "changeDetection": "OnPush",
-          "standalone": true,
-          "skipTests": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "baf",
@@ -54,7 +44,8 @@
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+            "prerender": true
           },
           "configurations": {
             "production": {
@@ -76,8 +67,8 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+
             },
-            // ДОБАВЬТЕ ЭТУ КОНФИГУРАЦИЮ:
             "ru": {
               "localize": ["ru"]
             }
@@ -96,7 +87,6 @@
             "development": {
               "buildTarget": "buy-and-fly:build:development"
             },
-            // ДОБАВЬТЕ ЭТУ КОНФИГУРАЦИЮ:
             "ru": {
               "buildTarget": "buy-and-fly:build:ru"
             }
