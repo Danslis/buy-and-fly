@@ -1,7 +1,13 @@
+@use 'src/stylesheets/device' as device;
+
 :host {
   display: inline-flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 0.5rem;
+
+  @include device.media-tablet-up() {
+    gap: 1rem;
+  }
 }
 
 a {
@@ -15,6 +21,7 @@ a {
   border-radius: 0.125rem;
 
   color: var(--md-sys-color-on-surface-variant);
+  white-space: nowrap;
 
   span {
     padding: 0 0.25rem;
