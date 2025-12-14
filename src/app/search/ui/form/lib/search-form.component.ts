@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output, signal } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { SearchService } from '@baf/search/services';
@@ -18,7 +18,7 @@ import { ButtonComponent } from '@baf/ui/buttons';
 
 export class SearchFormComponent {
   readonly form = input.required<FormGroup>();
-  readonly submitted = signal<boolean>(false);
+  readonly submitted = output();
 
   onSubmit(): void {
     this.form().markAllAsTouched();
@@ -27,6 +27,6 @@ export class SearchFormComponent {
       return;
     }
 
-    this.submitted.set(true);
+    this.submitted.emit();
   }
 }
