@@ -21,16 +21,12 @@ export const routes: Routes = [
         path: '',
         loadChildren: () => import('./routes/home.routes').then((m) => m.homeRoutes),
       },
-       {
+      {
         path: '',
         loadChildren: () => import('./routes/documents.routes').then((m) => m.documentsRoutes),
       },
       {
         path: PATHS.search,
-        loadChildren: () => import('./routes/search.routes').then((m) => m.searchRoutes),
-      },
-      {
-        path: PATHS.cards,
         loadChildren: () => import('./routes/search.routes').then((m) => m.searchRoutes),
       },
       {

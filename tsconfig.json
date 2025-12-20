@@ -37,7 +37,7 @@
       "@baf/home/page": ["src/app/home/page/index.ts"],
       "@baf/search/page": ["src/app/search/page/index.ts"],
       "@baf/search/ui/form": ["src/app/search/ui/form/index.ts"],
-      "@baf/search/ui/layout": ["src/app/search/ui/layout/index.ts"],
+      "@baf/search/ui/results": ["src/app/search/ui/results/index.ts"],
       "@baf/ui/buttons": ["src/app/ui/buttons/index.ts"],
       "@baf/ui/cards": ["src/app/ui/cards/index.ts"],
       "@baf/ui/autocomplete": ["src/app/ui/autocomplete/index.ts"],
@@ -57,6 +57,7 @@
       "@baf/search/avia/ui/form": ["src/app/search/avia/ui/form/index.ts"],
       "@baf/search/services": ["src/app/search/services/index.ts"],
       "@baf/search/ui/fields": ["src/app/search/ui/fields/index.ts"],
+      "@baf/search/ui/filters": ["src/app/search/ui/filters/index.ts"],
       "@baf/search/hotels/common": ["src/app/search/hotels/common/index.ts"],
       "@baf/search/hotels/ui/form": ["src/app/search/hotels/ui/form/index.ts"],
       "@baf/search/railways/common": [
