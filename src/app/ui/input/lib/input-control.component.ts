@@ -24,7 +24,7 @@ import { InputComponent } from './input.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   host: {
-    class: 'baf-input-control',
+    class: 'baf-input-control is-value',
   },
 })
 
@@ -33,13 +33,13 @@ export class InputControlComponent implements AfterViewInit, OnDestroy {
   readonly elementRef: ElementRef<HTMLInputElement> = inject(ElementRef);
   readonly renderer = inject(Renderer2);
 
- readonly label = contentChild<LabelComponent>(LabelComponent);
+  readonly label = contentChild<LabelComponent>(LabelComponent);
   readonly input = contentChild.required<InputComponent>(InputComponent);
 
   private isDisabled = false;
 
   ngAfterViewInit(): void {
-   const input = this.input();
+    const input = this.input();
 
     if (!input) {
       console.warn('Input[baf-input] not found. Add child <input baf-input /> in <baf-input-control></baf-input-control>');
