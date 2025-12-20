@@ -35,6 +35,7 @@
       "@baf/core": ["src/app/core/index.ts"],
       "@baf/development/page": ["src/app/development/page/index.ts"],
       "@baf/home/page": ["src/app/home/page/index.ts"],
+      "@baf/home/ui/widgets": ["src/app/home/ui/widgets/index.ts"],
       "@baf/search/page": ["src/app/search/page/index.ts"],
       "@baf/search/ui/form": ["src/app/search/ui/form/index.ts"],
       "@baf/search/ui/results": ["src/app/search/ui/results/index.ts"],
