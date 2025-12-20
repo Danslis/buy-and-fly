@@ -11,6 +11,8 @@ export const PATHS = {
   documents: 'documents',
   faq: 'faq',
   cards: 'cards',
+  login: 'login',
+  registration: 'registration',
   notFound: 'not-found',
   serverError: 'server-error',
   permissionDenied: 'permission-denied',
