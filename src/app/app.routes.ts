@@ -27,7 +27,7 @@ export const routes: Routes = [
       },
       {
         path: PATHS.search,
-        loadChildren: () => import('./routes/search.routes').then((m) => m.searchRoutes),
+        loadComponent: () => import('@baf/search/avia/ui/filters').then((m) => m.SearchFiltersAviaComponent),
       },
       {
         path: '',
