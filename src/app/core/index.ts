@@ -1,3 +1,4 @@
+export * from './lib/form/extract-changes.directive';
 export * from './lib/coercoin/coercoin';
 export * from './lib/env/environment';
 export * from './lib/form/form';
