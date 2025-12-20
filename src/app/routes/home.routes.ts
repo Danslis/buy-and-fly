@@ -4,8 +4,8 @@ import { PATHS } from '@baf/core';
 
 export const homeRoutes: Routes = [
   {
-    path: '',
-     title: $localize`:Home Title:Buy & Fly - Flights with 10% cashback`,
+    path: PATHS.homeAvia,
+    title: $localize`:Home Title:Buy & Fly - Flights with 10% cashback`,
     loadComponent: () => import('@baf/home/page').then((m) => m.HomePageComponent),
     children: [
       {
@@ -17,7 +17,7 @@ export const homeRoutes: Routes = [
   },
   {
     path: PATHS.homeHotels,
-        title: $localize`:Home Title:Buy & Fly - Hotels with 10% cashback`,
+    title: $localize`:Home Title:Buy & Fly - Hotels with 10% cashback`,
     loadComponent: () => import('@baf/home/page').then((m) => m.HomePageComponent),
     children: [
       {
