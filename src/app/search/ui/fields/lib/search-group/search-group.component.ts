@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component, HostBinding, input } from '@angular/core';
 
+// import { ExtraClassDirective } from '@baf/core';
+
+export type SearchGroupType = 'destination' | 'date' | 'line' | 'submit' | 'single' | undefined;
+
 @Component({
   selector: 'baf-search-group',
   standalone: true,
@@ -7,12 +11,18 @@ import { ChangeDetectionStrategy, Component, HostBinding, input } from '@angular
   template: '<ng-content/>',
   styleUrl: './search-group.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // hostDirectives: [
+  //   {
+  //     directive: ExtraClassDirective,
+  //     inputs: ['extra: mode'],
+  //   },
+  // ],
 })
 export class SearchGroupComponent {
- readonly mode = input<'destination' | 'date' | 'line' | 'submit' | 'single'>();
+  readonly mode = input<SearchGroupType>();
 
   @HostBinding('class.is-destination') get isDestination() {
-     return this.mode() === 'destination';
+    return this.mode() === 'destination';
   }
 
   @HostBinding('class.is-date') get isDate() {
@@ -24,7 +34,7 @@ export class SearchGroupComponent {
   }
 
   @HostBinding('class.is-submit') get isSubmit() {
-     return this.mode() === 'submit';
+    return this.mode() === 'submit';
   }
 
   @HostBinding('class.is-single') get isSingle() {
