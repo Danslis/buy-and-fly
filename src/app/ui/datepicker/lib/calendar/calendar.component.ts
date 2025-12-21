@@ -1,5 +1,4 @@
-
-import { DatePipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 import { IconButtonComponent } from '@baf/ui/buttons';
@@ -25,7 +24,7 @@ export interface CalendarSelected {
 @Component({
   selector: 'baf-calendar',
   standalone: true,
-  imports: [DatePipe, CalendarDaysPipe, IconButtonComponent, ChevronLeftComponent, ChevronRightComponent],
+  imports: [DatePipe, CalendarDaysPipe, IconButtonComponent, ChevronLeftComponent, ChevronRightComponent, AsyncPipe],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,13 +34,13 @@ export class CalendarComponent {
     transform: (date) => {
       let startDate: Date;
       if (date && date.length === 10) {
-        const parts = date.split('.');
-        startDate = new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0]));
+        startDate = new Date(date);
       } else {
         startDate = new Date();
       }
 
       this.config = this.getConfig(startDate, startDate.getDate());
+
       return startDate;
     },
   });
@@ -72,6 +71,7 @@ export class CalendarComponent {
       year = year - 1;
     }
     month = month - 1;
+
     this.config = this.getConfig(new Date(year, month, 1));
   }
 
@@ -82,6 +82,7 @@ export class CalendarComponent {
       year = year + 1;
     }
     month = month + 1;
+
     this.config = this.getConfig(new Date(year, month, 1));
   }
 
@@ -98,7 +99,7 @@ export class CalendarComponent {
     this.selected.emit({
       day,
       date,
-      format: `${res.day.toString().padStart(2, '0')}.${res.month.toString().padStart(2, '0')}.${res.year}`,
+      format: `${res.year}-${res.month.toString().padStart(2, '0')}-${res.day.toString().padStart(2, '0')}`,
     });
   }
 }
