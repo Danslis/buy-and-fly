@@ -6,12 +6,13 @@ import { startWith, tap, withLatestFrom } from 'rxjs';
 
 import { castQueryParams } from '@baf/core';
 import { ButtonComponent } from '@baf/ui/buttons';
+import { CardComponent } from '@baf/ui/cards';
 import { TitleComponent } from '@baf/ui/title';
 
 @Component({
   selector: 'baf-search-filters',
   standalone: true,
-  imports: [ButtonComponent, TitleComponent],
+  imports: [ButtonComponent, TitleComponent, CardComponent],
   templateUrl: './search-filters.component.html',
   styleUrl: './search-filters.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,6 +30,7 @@ export class SearchFiltersComponent implements OnInit {
     if (Object.keys(formData).length) {
       this.form().patchValue(formData);
     }
+
     this.form()
       .valueChanges.pipe(
         startWith({}),

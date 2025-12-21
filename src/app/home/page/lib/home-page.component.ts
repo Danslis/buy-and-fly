@@ -41,10 +41,13 @@ export class HomePageComponent {
       component.submitted.subscribe((form) => {
         // SearchAviaForm - all variants fields
         const formMapped = form as SearchAviaForm;
+
         const queryParams = {
           ...(form as Record<string, string>),
-          from: typeof formMapped.from !== 'string' ? formMapped.from.value : formMapped.from,
-          to: typeof formMapped.to !== 'string' ? formMapped.to.value : formMapped.to,
+          from: typeof formMapped.from === 'string' ? formMapped.from : formMapped.from.value,
+          fromName: typeof formMapped.from === 'string' ? undefined : formMapped.from.city_name,
+          to: typeof formMapped.to === 'string' ? formMapped.to : formMapped.to.value,
+          toName: typeof formMapped.to === 'string' ? undefined : formMapped.to.city_name,
         };
         void this.router.navigate(getRoute(component.redirectTo), { queryParams });
       });
