@@ -3,14 +3,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl } from '@angular/forms';
 import { BehaviorSubject, debounceTime, EMPTY, of, switchMap, tap } from 'rxjs';
 
-import { SearchCityOrAirport } from '@baf/search/common';
+import { SearchDestination, SearchFieldOptions } from '@baf/search/common';
 import { SearchService } from '@baf/search/services';
 import { AutocompleteComponent, AutocompleteOptions } from '@baf/ui/autocomplete';
 
-export interface SearchDestinationOptions {
-  readonly label: string;
-  readonly placeholder?: string;
-  readonly id: string;
+export interface SearchDestinationOptions extends SearchFieldOptions {
+  readonly types?: string[];
 }
 
 @Component({
@@ -26,16 +24,17 @@ export class SearchDestinationComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly searchService = inject(SearchService);
 
-  readonly control = input.required<FormControl<string | SearchCityOrAirport>>();
-  readonly options = input.required<AutocompleteOptions, SearchDestinationOptions>({
+  readonly control = input.required<FormControl<string | SearchDestination>>();
+
+  readonly options = input.required<AutocompleteOptions & SearchDestinationOptions, SearchDestinationOptions>({
     transform: (options) => {
       return {
         ...options,
         key: 'code',
-        displayFn: (item: SearchCityOrAirport) => {
+        displayFn: (item: SearchDestination) => {
           return `${item.name}, ${item.code}<br>${item.country_name}, ${item.city_name ?? item.name}`;
         },
-        inputDisplayFn: (item: SearchCityOrAirport | string) => {
+        inputDisplayFn: (item: SearchDestination | string) => {
           if (!item) {
             return '';
           }
@@ -54,9 +53,9 @@ export class SearchDestinationComponent implements OnInit {
 
   @HostBinding('class.is-to') get isTo() {
     return this.options().id === 'to';
-   }
+  }
 
-   readonly data$ = new BehaviorSubject<SearchCityOrAirport[]>([]);
+  readonly data$ = new BehaviorSubject<SearchDestination[]>([]);
 
   ngOnInit(): void {
     this.control().valueChanges
@@ -71,7 +70,7 @@ export class SearchDestinationComponent implements OnInit {
             return EMPTY;
           }
 
-          return this.searchService.findCityOrAirport(query);
+          return this.searchService.findDestination(query, this.options().types);
         }),
         tap((response) => this.data$.next(response.slice(0, 6))),
         takeUntilDestroyed(this.destroyRef),

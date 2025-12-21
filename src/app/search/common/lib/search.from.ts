@@ -46,14 +46,14 @@ export interface SearchFieldOptions {
   readonly placeholder?: string;
 }
 
-export interface SearchCityOrAirport {
+export interface SearchDestination {
   readonly [key: string]: unknown;
   readonly id: string;
   readonly type: string;
   readonly code: string;
-  readonly name: string;
   readonly country_name: string;
   readonly city_name: string;
+  readonly name?: string;
   readonly value: string;
 }
 /* eslint-enable @typescript-eslint/naming-convention */
