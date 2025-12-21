@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 
+import { initialSearchAviaFiltersGroup, SearchAviaFilters, SearchFormOptions } from '@baf/search/common';
 import { SearchFiltersComponent } from '@baf/search/ui/filters';
 
 import { FilterBaggageComponent } from './filter-baggage/filter-baggage.component';
@@ -15,7 +15,9 @@ import { FilterBaggageComponent } from './filter-baggage/filter-baggage.componen
 })
 
 export class SearchFiltersAviaComponent {
-  readonly form = new FormGroup({
-    baggage: new FormControl(false, { nonNullable: true, validators: [] }),
-  });
+  readonly form = initialSearchAviaFiltersGroup;
+
+  readonly options: SearchFormOptions<SearchAviaFilters> = {
+    baggage: { label: $localize`:Search Filter:Baggage`, id: 'baggage', name: 'baggage' },
+  };
 }
