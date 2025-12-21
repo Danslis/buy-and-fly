@@ -39,24 +39,25 @@ export interface SearchCityOrAirportDTO {
   readonly main_airport_name: string | null;
 }
 
-export interface SearchFieldOptions {
-  readonly [key: string]: unknown;
-  readonly id: string;
-  readonly label: string;
-  readonly placeholder?: string;
-}
-
 export interface SearchDestination {
   readonly [key: string]: unknown;
   readonly id: string;
   readonly type: string;
   readonly code: string;
+  readonly name: string;
   readonly country_name: string;
   readonly city_name: string;
-  readonly name?: string;
   readonly value: string;
 }
 /* eslint-enable @typescript-eslint/naming-convention */
+
+export interface SearchFieldOptions {
+  readonly [key: string]: unknown;
+  readonly id: string;
+  readonly label: string;
+  readonly name?: string;
+  readonly placeholder?: string;
+}
 
 export type SearchFormOptions<T> = {
   readonly [P in keyof T]: SearchFieldOptions;
@@ -73,6 +74,7 @@ export interface CanFilter {
 
 export interface SearchFlightOptions {
   readonly [key: string]: unknown;
+
   readonly currency: string;
   readonly origin: string;
   readonly destination: string;
@@ -83,29 +85,31 @@ export interface SearchFlightOptions {
   readonly unique?: boolean;
   readonly limit?: number;
   readonly page?: number;
+
+  readonly token: string;
+}
+
+export interface SearchFlight {
+  readonly origin: string;
+  readonly destination: string;
+  readonly origin_airport: string;
+  readonly destination_airport: string;
+  readonly price: number;
+  readonly airline: string;
+  readonly flight_number: string;
+  readonly departure_at: string;
+  readonly return_at: string;
+  readonly transfers: number;
+  readonly return_transfers: number;
+  readonly duration: number;
+  readonly duration_to: number;
+  readonly duration_back: number;
+  readonly link: string;
 }
 
 export interface SearchFlightResponse {
   readonly success: boolean;
-  readonly data: [
-    {
-      readonly origin: string;
-      readonly destination: string;
-      readonly origin_airport: string;
-      readonly destination_airport: string;
-      readonly price: number;
-      readonly airline: string;
-      readonly flight_number: string;
-      readonly departure_at: string;
-      readonly return_at: string;
-      readonly transfers: number;
-      readonly return_transfers: number;
-      readonly duration: number;
-      readonly duration_to: number;
-      readonly duration_back: number;
-      readonly link: string;
-    },
-  ];
+  readonly data: SearchFlight[];
   readonly currency: string;
 }
 

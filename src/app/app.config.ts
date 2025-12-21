@@ -3,6 +3,8 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessC
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideRouter, withComponentInputBinding, withInMemoryScrolling } from '@angular/router';
 
+import { provideCurrency } from '@baf/core';
+
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -18,6 +20,7 @@ export const appConfig: ApplicationConfig = {
       withComponentInputBinding(),
     ),
     provideClientHydration(withEventReplay()),
+    provideCurrency('RUB'),
     provideHttpClient(withFetch())
   ]
 };

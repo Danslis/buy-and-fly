@@ -1,31 +1,30 @@
 import { APP_INITIALIZER, makeStateKey, TransferState } from '@angular/core';
+import process from 'node:process';
 
-declare const process: {
-  env: Record<string, string | undefined>;
-};
+export const ENV_KEY = makeStateKey<Environment>('Environment');
 
-export const envStateKey = makeStateKey<Env>('Env');
-
-export interface Env {
+export interface Environment {
   readonly aviasalesToken: string;
   readonly hotellookToken: string;
 }
 
-export function transferStateFactory(transferState: TransferState) {
-  return () => {
-    transferState.set<Env>(envStateKey, {
-      aviasalesToken: process.env['AVIASALES_TOKEN'] ?? '',
-      hotellookToken: process.env['HOTELLOOK_TOKEN'] ?? '',
-    });
-  };
-}
-
+export const ENV_DEFAULT: Environment = {
+  aviasalesToken: '',
+  hotellookToken: '',
+};
 
 export function provideEnv() {
   return [
     {
       provide: APP_INITIALIZER,
-      useFactory: transferStateFactory,
+      useFactory: (transferState: TransferState) => {
+        return () => {
+          transferState.set<Environment>(ENV_KEY, {
+            aviasalesToken: process.env['AVIASALES_TOKEN'] ?? ENV_DEFAULT.aviasalesToken,
+            hotellookToken: process.env['HOTELLOOK_TOKEN'] ?? ENV_DEFAULT.hotellookToken,
+          });
+        };
+      },
       deps: [TransferState],
       multi: true,
     },
