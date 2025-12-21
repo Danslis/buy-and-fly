@@ -7,15 +7,15 @@ declare const process: {
 export const envStateKey = makeStateKey<Env>('Env');
 
 export interface Env {
-  readonly apiUrl: string;
-  readonly apiToken: string;
+  readonly aviasalesToken: string;
+  readonly hotellookToken: string;
 }
 
 export function transferStateFactory(transferState: TransferState) {
   return () => {
     transferState.set<Env>(envStateKey, {
-      apiUrl: process.env['API_URL'] ?? '',
-      apiToken: process.env['API_TOKEN'] ?? '',
+      aviasalesToken: process.env['AVIASALES_TOKEN'] ?? '',
+      hotellookToken: process.env['HOTELLOOK_TOKEN'] ?? '',
     });
   };
 }
