@@ -1,3 +1,4 @@
+export * from './lib/api/params';
 export * from './lib/coercoin/coercoin';
 export * from './lib/currency/currency';
 export * from './lib/env/environment';
