@@ -6,6 +6,7 @@ export const PATHS = {
   homeHotels: 'hotels',
   homeTours: 'tours',
   homeRailways: 'railways',
+
   rules: 'rules',
   terms: 'terms',
   documents: 'documents',
@@ -13,9 +14,11 @@ export const PATHS = {
   cards: 'cards',
   login: 'login',
   registration: 'registration',
+
   notFound: 'not-found',
   serverError: 'server-error',
   permissionDenied: 'permission-denied',
+
   search: 'search',
   searchAvia: 'search/avia',
   searchHotel: 'search/hotels',

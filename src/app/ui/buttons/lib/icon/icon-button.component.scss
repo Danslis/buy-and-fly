@@ -4,6 +4,7 @@
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
+
   height: 48px;
   width: 48px;
   padding: 4px;
@@ -14,8 +15,11 @@
   user-select: none;
   background-color: transparent;
   text-decoration: none;
+
   cursor: pointer;
+
   border-radius: var(--md-sys-shape-corner-full);
+
   position: relative;
 }
 

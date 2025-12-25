@@ -15,6 +15,7 @@ export function castQueryParams(queryParams: Record<string, unknown>, props?: st
 
   for (const key of keys) {
     const value = queryParams[key];
+
     if (typeof value === 'string' && value.length > 0) {
       if (['true', 'false'].includes(value)) {
         mapped[key] = value === 'true';
@@ -32,15 +33,3 @@ export function castQueryParams(queryParams: Record<string, unknown>, props?: st
 
   return mapped;
 }
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type ChangeFn = (value: any) => void;
-export type TouchedFn = () => void;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type DisplayFn = (value: any, index?: number) => string;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type MaskFn = (value: any) => string;
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type StyleFn = (value: any) => string | string[];

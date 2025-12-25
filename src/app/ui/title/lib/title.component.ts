@@ -14,7 +14,7 @@ import { AlignDirective, SizeDirective } from '@baf/ui/utils';
   hostDirectives: [
     {
       directive: SizeDirective,
-       inputs: ['bafSize'],
+      inputs: ['bafSize'],
     },
     {
       directive: AlignDirective,
@@ -22,4 +22,4 @@ import { AlignDirective, SizeDirective } from '@baf/ui/utils';
     },
   ],
 })
-export class TitleComponent { }
+export class TitleComponent {}

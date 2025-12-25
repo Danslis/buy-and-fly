@@ -33,12 +33,12 @@ import { AnchorBase, ButtonBase } from '../base/button-base';
     },
   ],
 })
-
 export class ButtonComponent extends ButtonBase {
   constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 }
+
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'a[baf-button]',

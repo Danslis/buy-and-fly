@@ -11,5 +11,4 @@ import { ContainerComponent } from '@baf/ui/container';
   styleUrl: './search-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
-export class SearchPageComponent { }
+export class SearchPageComponent {}

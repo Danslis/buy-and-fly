@@ -10,4 +10,4 @@ import { IconComponent } from '../icon/icon.component';
   styleUrl: './sync-alt.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SyncAltComponent { }
+export class SyncAltComponent {}

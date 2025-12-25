@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { initialSearchAviaFiltersGroup, SearchAviaFilters, SearchFormOptions } from '@baf/search/common';
+import { initialSearchAviaFiltersGroup, SearchAviaFilters } from '@baf/search/avia/common';
+import { SearchFormOptions } from '@baf/search/common';
 import { SearchFiltersComponent } from '@baf/search/ui/filters';
 
 import { FilterBaggageComponent } from './filter-baggage/filter-baggage.component';
@@ -14,7 +15,6 @@ import { FilterDirectComponent } from './filter-direct/filter-direct.component';
   styleUrl: './search-filters-avia.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class SearchFiltersAviaComponent {
   readonly form = initialSearchAviaFiltersGroup;
 

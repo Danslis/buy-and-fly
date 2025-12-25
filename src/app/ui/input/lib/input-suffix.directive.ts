@@ -8,4 +8,4 @@ import { Directive } from '@angular/core';
     '[style.margin-right]': '"12px"',
   },
 })
-export class InputSuffixDirective { }
+export class InputSuffixDirective {}

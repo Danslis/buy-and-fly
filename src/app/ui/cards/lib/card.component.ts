@@ -11,5 +11,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     class: 'baf-card',
   },
 })
-
 export class CardComponent {}

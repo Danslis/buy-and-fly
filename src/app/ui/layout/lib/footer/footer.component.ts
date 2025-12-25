@@ -12,8 +12,6 @@ import { FooterLinksComponent } from './footer-links/footer-links.component';
   imports: [ContainerComponent, TitleComponent, FooterLinksComponent, FooterCashbackComponent],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
-export class FooterComponent {
-}
+export class FooterComponent {}

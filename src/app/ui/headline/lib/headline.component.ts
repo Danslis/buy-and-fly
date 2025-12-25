@@ -22,4 +22,4 @@ import { AlignDirective, SizeDirective } from '@baf/ui/utils';
     },
   ],
 })
-export class HeadlineComponent { }
+export class HeadlineComponent {}

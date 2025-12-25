@@ -1,5 +1,4 @@
 import { inject, Pipe, PipeTransform } from '@angular/core';
-
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Pipe({

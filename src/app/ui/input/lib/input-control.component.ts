@@ -27,7 +27,6 @@ import { InputComponent } from './input.component';
     class: 'baf-input-control',
   },
 })
-
 export class InputControlComponent implements AfterViewInit, OnDestroy {
   readonly destroyRef = inject(DestroyRef);
   readonly elementRef: ElementRef<HTMLInputElement> = inject(ElementRef);
@@ -40,7 +39,6 @@ export class InputControlComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     const input = this.input();
-
     if (!input) {
       console.warn('Input[baf-input] not found. Add child <input baf-input /> in <baf-input-control></baf-input-control>');
       return;
@@ -50,7 +48,6 @@ export class InputControlComponent implements AfterViewInit, OnDestroy {
     input.elementRef.nativeElement.addEventListener('focusout', this.onFocusout);
     input.elementRef.nativeElement.addEventListener('input', this.onInput);
     input.elementRef.nativeElement.addEventListener('change', this.onInput);
-
     this.onInput({ target: input.elementRef.nativeElement });
 
     input.ngControl.control?.events
@@ -87,7 +84,6 @@ export class InputControlComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     const input = this.input();
-
     if (!input) {
       return;
     }
@@ -108,7 +104,6 @@ export class InputControlComponent implements AfterViewInit, OnDestroy {
     if (!this.isDisabled) {
       this.renderer.removeClass(this.elementRef.nativeElement, 'is-pressed');
     }
-
     this.check();
   };
 

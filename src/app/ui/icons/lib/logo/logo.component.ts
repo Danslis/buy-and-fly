@@ -10,5 +10,4 @@ import { IconComponent } from '../icon/icon.component';
   styleUrl: './logo.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
-export class LogoComponent { }
+export class LogoComponent {}

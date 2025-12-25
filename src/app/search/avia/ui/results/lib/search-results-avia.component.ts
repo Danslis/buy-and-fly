@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
 
-import { SearchAviaService } from '@baf/search/services';
+import { SearchAviaService } from '@baf/search/avia/services';
 
 import { SearchAviaCardComponent } from './search-avia-card/search-avia-card.component';
 

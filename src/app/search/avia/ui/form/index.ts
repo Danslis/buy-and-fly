@@ -1,1 +1,1 @@
-export * from './lib/search-avia-form.component'
+export * from './lib/search-avia-form.component';

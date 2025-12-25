@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { NavigationLink, PATHS } from '@baf/core'
+import { NavigationLink, PATHS } from '@baf/core';
 import { SearchFormComponent } from '@baf/search/ui/form';
 import { HeadlineComponent } from '@baf/ui/headline';
 import { NavComponent } from '@baf/ui/nav';
-
 
 @Component({
   selector: 'baf-promo',

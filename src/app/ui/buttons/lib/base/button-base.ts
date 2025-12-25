@@ -1,15 +1,14 @@
 import { FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { AfterViewInit, Directive, ElementRef, inject, NgZone, OnDestroy, OnInit } from '@angular/core';
-
-import { coerceBooleanProperty } from '@baf/core';
 
 @Directive()
 export class ButtonBase implements AfterViewInit, OnDestroy {
   private isDisabled = false;
+
   private readonly focusMonitor = inject(FocusMonitor);
 
-  // eslint-disable-next-line @angular-eslint/prefer-inject
-  constructor(protected readonly elementRef: ElementRef) { }
+  constructor(protected readonly elementRef: ElementRef) {}
 
   get disabled(): boolean {
     return this.isDisabled;

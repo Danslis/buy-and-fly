@@ -1,11 +1,8 @@
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-
 import { AccordionComponent } from '@baf/ui/accordion';
 import { HeadlineComponent } from '@baf/ui/headline';
-
-
 import { ArrowDownComponent, ArrowUpComponent } from '@baf/ui/icons';
 
 @Component({
@@ -17,6 +14,7 @@ import { ArrowDownComponent, ArrowUpComponent } from '@baf/ui/icons';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuestionsComponent {
+  /* eslint-disable max-len */
   readonly questions = [
     {
       title: $localize`:Questions Get Title:When will cashback arrive?`,

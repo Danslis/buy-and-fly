@@ -1,11 +1,10 @@
 import { DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
-import { SearchAviaLine } from '@baf/search/common';
+import { SearchAviaLine } from '@baf/search/avia/common';
 
 import { SearchAviaTimeComponent } from '../search-avia-time/search-avia-time.component';
 import { SearchAviaDurationPipe } from './search-avia-duration.pipe';
-
 
 @Component({
   selector: 'baf-search-avia-duration',

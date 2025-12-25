@@ -30,4 +30,4 @@ import { SectionComponent } from '@baf/ui/section';
   styleUrl: './home-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomePageComponent { }
+export class HomePageComponent {}

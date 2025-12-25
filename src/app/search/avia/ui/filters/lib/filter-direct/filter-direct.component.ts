@@ -23,6 +23,5 @@ export type FilterDirectOptions = SearchFieldOptions;
 })
 export class FilterDirectComponent {
   readonly control = input.required<FormControl<boolean>>();
-
   readonly options = input.required<FilterDirectOptions>();
 }

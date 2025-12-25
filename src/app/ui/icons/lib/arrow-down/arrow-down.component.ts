@@ -10,4 +10,4 @@ import { IconComponent } from '../icon/icon.component';
   styleUrl: './arrow-down.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ArrowDownComponent { }
+export class ArrowDownComponent {}

@@ -14,4 +14,4 @@ import { MustBuyTourComponent } from './must-buy-tour/must-buy-tour.component';
   styleUrl: './must-buy.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MustBuyComponent { }
+export class MustBuyComponent {}

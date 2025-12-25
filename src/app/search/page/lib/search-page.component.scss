@@ -15,18 +15,15 @@
       width: 33.333%;
       padding-right: 0.5rem;
     }
-
     &:last-child {
       width: 66.667%;
       padding-left: 0.5rem;
     }
   }
-
   @include device.media-web() {
     &:first-child {
       width: 25%;
     }
-
     &:last-child {
       width: 75%;
     }

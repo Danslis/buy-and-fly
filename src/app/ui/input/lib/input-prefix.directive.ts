@@ -8,4 +8,4 @@ import { Directive } from '@angular/core';
     '[style.margin-left]': '"12px"',
   },
 })
-export class InputPrefixDirective { }
+export class InputPrefixDirective {}

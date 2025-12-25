@@ -1,5 +1,5 @@
 import { CdkConnectedOverlay, CdkOverlayOrigin } from '@angular/cdk/overlay';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, input, output, Signal, signal, viewChild } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Observable, take, tap } from 'rxjs';
@@ -16,7 +16,6 @@ export interface AutocompleteOptions {
   readonly placeholder?: string;
   readonly id: string;
   readonly key: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   readonly displayFn: DisplayFn;
   readonly inputDisplayFn: DisplayFn;
 }
@@ -29,6 +28,7 @@ export interface AutocompleteOptions {
     CdkConnectedOverlay,
     CdkOverlayOrigin,
     InputComponent,
+    NgForOf,
     AsyncPipe,
     InputControlComponent,
     InputDisplayDirective,
@@ -41,7 +41,6 @@ export interface AutocompleteOptions {
     class: 'baf-input-control',
   },
 })
-
 export class AutocompleteComponent {
   readonly control = input.required<FormControl<string | AutocompleteVariant>>();
   readonly options = input.required<AutocompleteOptions>();
@@ -51,7 +50,7 @@ export class AutocompleteComponent {
   readonly opened = output();
   readonly closed = output();
 
-   readonly input: Signal<ElementRef<HTMLInputElement>> = viewChild.required('input', { read: ElementRef<HTMLInputElement> });
+  readonly input: Signal<ElementRef<HTMLInputElement>> = viewChild.required('input', { read: ElementRef<HTMLInputElement> });
 
   readonly open = signal<boolean>(false);
 
