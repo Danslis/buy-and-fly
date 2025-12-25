@@ -1,21 +1,19 @@
-
 import { DestroyRef, Directive, ElementRef, inject, input, OnInit, Renderer2 } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { Observable, tap } from 'rxjs';
 
-import { StyleFn } from '../form/form';
+import { StyleFn } from '../types/type';
 
 @Directive({
   selector: '[bafExtraClass]',
   standalone: true,
 })
-
 export class ExtraClassDirective implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly render = inject(Renderer2);
   private readonly elementRef: ElementRef<HTMLElement> = inject(ElementRef);
 
-  readonly extra = input.required<unknown>();
+  readonly extra = input<unknown>();
 
   valueChanges?: Observable<unknown>;
 
@@ -35,10 +33,7 @@ export class ExtraClassDirective implements OnInit {
   ngOnInit(): void {
     this.valueChanges
       ?.pipe(
-        tap(() => {
-          console.log('valueChanges');
-          this.update();
-        }),
+        tap(() => this.update()),
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe();

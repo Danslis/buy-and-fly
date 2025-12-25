@@ -1,6 +1,7 @@
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Directive, HostBinding, Input } from '@angular/core';
 
-import { coerceBooleanProperty } from '@baf/core';
+
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector

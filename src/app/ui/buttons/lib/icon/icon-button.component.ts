@@ -34,6 +34,7 @@ export class IconButtonComponent extends ButtonBase {
     super(elementRef);
   }
 }
+
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'a[baf-icon-button]',
@@ -48,6 +49,10 @@ export class IconButtonComponent extends ButtonBase {
     {
       directive: ModeDirective,
       inputs: ['bafMode'],
+    },
+    {
+      directive: ExtraSizeDirective,
+      inputs: ['bafSize'],
     },
     {
       directive: DisabledDirective,

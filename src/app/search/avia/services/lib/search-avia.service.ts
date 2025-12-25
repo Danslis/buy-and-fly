@@ -5,7 +5,6 @@ import { map, Observable } from 'rxjs';
 import { castParams, ENV_DEFAULT, ENV_KEY, Environment } from '@baf/core';
 import { getSearchFlightOptions, SearchFlight, SearchFlightResponse } from '@baf/search/avia/common';
 
-
 @Injectable()
 export class SearchAviaService {
   private readonly httpClient = inject(HttpClient);

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 import { AlignDirective } from '@baf/ui/utils';
 
@@ -8,6 +9,7 @@ import { MobileDirective } from './mobile.directive';
 @Component({
   selector: 'baf-container',
   standalone: true,
+  imports: [RouterOutlet],
   template: '<ng-content/>',
   styleUrl: './container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,11 +19,11 @@ import { MobileDirective } from './mobile.directive';
   hostDirectives: [
     {
       directive: FluidDirective,
-      inputs: ['fluid'],
+      inputs: ['bafFluid'],
     },
     {
       directive: MobileDirective,
-      inputs: ['mobile'],
+      inputs: ['bafMobile'],
     },
     {
       directive: AlignDirective,
@@ -29,4 +31,4 @@ import { MobileDirective } from './mobile.directive';
     },
   ],
 })
-export class ContainerComponent { }
+export class ContainerComponent {}

@@ -2,23 +2,23 @@ import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core
 
 import { ExtraClassService, toClass } from '@baf/core';
 
-export type SectionColor = 'smoke' | undefined;
+export type SearchGroupType = 'destination' | 'date' | 'line' | 'submit' | 'single' | undefined;
 
 @Component({
-  selector: 'baf-section',
+  selector: 'baf-search-group',
   standalone: true,
+  imports: [],
   template: '<ng-content/>',
-  styleUrl: './section.component.scss',
+  styleUrl: './search-group.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ExtraClassService],
 })
-export class SectionComponent {
+export class SearchGroupComponent {
   private readonly extraClassService = inject(ExtraClassService);
 
-  readonly color = input<SectionColor, SectionColor>(undefined, {
-    alias: 'bafColor',
+  readonly mode = input<SearchGroupType, SearchGroupType>(undefined, {
     transform: (value) => {
-      this.extraClassService.update('color', toClass(value, 'color'));
+      this.extraClassService.update('mode', toClass(value));
 
       return value;
     },

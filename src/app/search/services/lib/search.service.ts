@@ -3,7 +3,8 @@ import { DEFAULT_CURRENCY_CODE, inject, Injectable, LOCALE_ID, TransferState } f
 import { map, Observable } from 'rxjs';
 
 import { castParams, castQueryParams, ENV_DEFAULT, ENV_KEY, Environment, HttpParams } from '@baf/core';
-import { SearchDestination, SearchFlight, SearchFlightOptions, SearchFlightResponse } from '@baf/search/common';
+import { SearchFlight, SearchFlightOptions, SearchFlightResponse } from '@baf/search/avia/common';
+import { SearchDestination } from '@baf/search/common';
 
 export function getSearchFlightOptions(queryParams: Record<string, unknown>, token: string, currency: string): SearchFlightOptions {
   const { from, to, direct, startDate, endDate } = castQueryParams(queryParams);
