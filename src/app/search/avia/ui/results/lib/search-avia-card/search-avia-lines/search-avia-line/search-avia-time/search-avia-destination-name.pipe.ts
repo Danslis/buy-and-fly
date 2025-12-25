@@ -1,7 +1,6 @@
 import { inject, Pipe, PipeTransform } from '@angular/core';
 import { map, Observable, of, switchMap } from 'rxjs';
-
-import { SearchService } from '@baf/search/services';
+import { SearchService } from 'src/app/search/services/lib/search.service';
 
 @Pipe({
   name: 'searchAviaDestinationName',

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 //import { camelCaseToHumanize, ExtraClassService } from '@baf/core';

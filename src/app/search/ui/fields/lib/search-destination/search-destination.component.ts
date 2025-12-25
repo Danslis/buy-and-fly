@@ -1,11 +1,14 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, HostBinding, inject, input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, input, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl } from '@angular/forms';
 import { BehaviorSubject, debounceTime, EMPTY, of, switchMap, tap } from 'rxjs';
 
+//import { ExtraClassService, toClass } from '@baf/core';
 import { SearchDestination, SearchFieldOptions } from '@baf/search/common';
-import { SearchService } from '@baf/search/services';
 import { AutocompleteComponent, AutocompleteOptions } from '@baf/ui/autocomplete';
+import { InputComponent } from '@baf/ui/input';
+
+import { SearchDestinationService } from './search-destination.service';
 
 export interface SearchDestinationOptions extends SearchFieldOptions {
   readonly types?: string[];
@@ -14,20 +17,22 @@ export interface SearchDestinationOptions extends SearchFieldOptions {
 @Component({
   selector: 'baf-search-destination',
   standalone: true,
-  imports: [AutocompleteComponent],
+  imports: [InputComponent, AutocompleteComponent],
   templateUrl: './search-destination.component.html',
   styleUrl: './search-destination.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [SearchDestinationService],
 })
-
 export class SearchDestinationComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
-  private readonly searchService = inject(SearchService);
+  private readonly searchDestinationService = inject(SearchDestinationService);
+  //private readonly extraClassService = inject(ExtraClassService);
 
   readonly control = input.required<FormControl<string | SearchDestination>>();
-
   readonly options = input.required<AutocompleteOptions & SearchDestinationOptions, SearchDestinationOptions>({
     transform: (options) => {
+      //this.extraClassService.update('options', toClass(options.id));
+
       return {
         ...options,
         key: 'code',
@@ -41,25 +46,18 @@ export class SearchDestinationComponent implements OnInit {
           if (typeof item === 'string') {
             return item;
           }
+
           return `${item.name}, ${item.code}`;
         },
       };
     },
   });
 
-  @HostBinding('class.is-from') get isFrom() {
-    return this.options().id === 'from';
-  }
-
-  @HostBinding('class.is-to') get isTo() {
-    return this.options().id === 'to';
-  }
-
   readonly data$ = new BehaviorSubject<SearchDestination[]>([]);
 
   ngOnInit(): void {
-    this.control().valueChanges
-      .pipe(
+    this.control()
+      .valueChanges.pipe(
         debounceTime(300),
         switchMap((query) => {
           if (!query) {
@@ -70,7 +68,7 @@ export class SearchDestinationComponent implements OnInit {
             return EMPTY;
           }
 
-          return this.searchService.findDestination(query, this.options().types);
+          return this.searchDestinationService.findDestination(query, this.options().types);
         }),
         tap((response) => this.data$.next(response.slice(0, 6))),
         takeUntilDestroyed(this.destroyRef),
