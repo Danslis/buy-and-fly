@@ -12,6 +12,7 @@ import { SearchDestinationService } from './search-destination.service';
 
 export interface SearchDestinationOptions extends SearchFieldOptions {
   readonly types?: string[];
+  readonly key?: string;
 }
 
 @Component({
@@ -35,7 +36,7 @@ export class SearchDestinationComponent implements OnInit {
 
       return {
         ...options,
-        key: 'code',
+        key: options.key ?? 'code',
         displayFn: (item: SearchDestination) => {
           return `${item.name}, ${item.code}<br>${item.country_name}, ${item.city_name ?? item.name}`;
         },
