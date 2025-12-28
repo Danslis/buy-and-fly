@@ -1,59 +1,56 @@
-# BuyAndFly
+# Buy & Fly
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
+This application is designed to search for cheap flights and book hotels. It is developed using Angular 18, leveraging new features such as Signals. The project relies solely on the standard library, avoiding third-party solutions.
 
-## Development server
+To enhance the user interface, a custom UI Kit has been developed, with minimal usage of Angular CDK components.
 
-To start a local development server, run:
+![image](public/images/project.jpg)
 
-```bash
-ng serve
-```
+### Features
+- Flight Search: Find and compare the best flight deals from various airlines.
+- Hotel Booking: Book hotels at competitive prices with detailed listings.
+- Angular 18: Built using the latest version of Angular, incorporating cutting-edge features and improvements.
+- Custom UI Kit: A bespoke UI Kit designed to provide a consistent and intuitive user experience, with limited dependency on Angular CDK.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Technologies Used
+- Angular 18
+- Standard Angular Library
+- Custom UI Kit
+- Angular CDK (minimal usage)
 
-## Code scaffolding
+## Getting Started
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+To get started with the project, clone the repository and install the necessary dependencies:
 
 ```bash
-ng build
+git clone git@github.com:Fafnur/buy-and-fly.git
+cd buy-and-fly
+yarn install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Please use Yarn instead of NPM to install dependencies. See: `https://yarnpkg.com/getting-started/install`
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Run the development server:
 
 ```bash
-ng test
+yarn ng serve
 ```
 
-## Running end-to-end tests
+Navigate to `http://localhost:4200/` in your browser to see the application in action.
 
-For end-to-end (e2e) testing, run:
+For build: 
 
 ```bash
-ng e2e
+yarn ng build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+The build artifacts will be stored in the `dist/` directory.
 
-## Additional Resources
+## Contributing
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+We welcome contributions! Please fork the repository and submit pull requests for any improvements or new features.
+
+## License
+
+This project is licensed under the MIT License - see the `LICENSE` file for details.
