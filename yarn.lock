@@ -3291,6 +3291,7 @@ __metadata:
     karma-jasmine-html-reporter: "npm:~2.1.0"
     prettier: "npm:^3.6.2"
     rxjs: "npm:~7.8.0"
+    ts-node: "npm:^10.9.2"
     tslib: "npm:^2.3.0"
     typescript: "npm:~5.8.2"
     typescript-eslint: "npm:8.40.0"
@@ -7280,7 +7281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.0.0":
+"ts-node@npm:^10.0.0, ts-node@npm:^10.9.2":
   version: 10.9.2
   resolution: "ts-node@npm:10.9.2"
   dependencies:

@@ -10,6 +10,8 @@
     "extract-i18n": "ng extract-i18n --out-file=src/i18n/source.xlf",
     "serve": "node dist/buy-and-fly/server/ru/server.mjs",
     "lint": "ng lint",
+    "---- App ----": "",
+    "release": "ts-node --project tsconfig.release.json ./scripts/release.ts",
     "build:ru": "ng build --configuration=ru",
     "build:all": "ng build --localize",
     "start:ru": "ng serve --configuration=ru",
@@ -75,6 +77,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "prettier": "^3.6.2",
     "rxjs": "~7.8.0",
+    "ts-node": "^10.9.2",
     "tslib": "^2.3.0",
     "typescript": "~5.8.2",
     "typescript-eslint": "8.40.0"
