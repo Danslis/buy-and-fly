@@ -1,4 +1,4 @@
-import { AsyncPipe, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 import { IconButtonComponent } from '@baf/ui/buttons';
@@ -24,7 +24,7 @@ export interface CalendarSelected {
 @Component({
   selector: 'baf-calendar',
   standalone: true,
-  imports: [DatePipe, CalendarDaysPipe, IconButtonComponent, ChevronLeftComponent, ChevronRightComponent, AsyncPipe],
+  imports: [DatePipe, CalendarDaysPipe, IconButtonComponent, ChevronLeftComponent, ChevronRightComponent],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

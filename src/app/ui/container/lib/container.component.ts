@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 import { AlignDirective } from '@baf/ui/utils';
 
@@ -9,7 +8,7 @@ import { MobileDirective } from './mobile.directive';
 @Component({
   selector: 'baf-container',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [],
   template: '<ng-content/>',
   styleUrl: './container.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,4 +30,4 @@ import { MobileDirective } from './mobile.directive';
     },
   ],
 })
-export class ContainerComponent {}
+export class ContainerComponent { }

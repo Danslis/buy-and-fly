@@ -1,6 +1,6 @@
 
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import type { FormGroup } from '@angular/forms';
 
 import { IconButtonComponent } from '@baf/ui/buttons';
 import { SyncAltComponent } from '@baf/ui/icons';
@@ -17,7 +17,7 @@ export class SearchReverseComponent {
   readonly form = input.required<FormGroup>();
 
   onReverse(): void {
-     const { from, to } = this.form().getRawValue();
+    const { from, to } = this.form().getRawValue();
     if (from && to) {
       this.form().patchValue({ from: to, to: from }, { emitEvent: false });
     }

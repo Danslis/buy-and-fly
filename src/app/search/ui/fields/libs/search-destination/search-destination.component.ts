@@ -8,7 +8,6 @@ import { ExtraClassService, toClass } from '@baf/core';
 import type { SearchDestination, SearchFieldOptions } from '@baf/search/common';
 import type { AutocompleteOptions } from '@baf/ui/autocomplete';
 import { AutocompleteComponent } from '@baf/ui/autocomplete';
-import { InputComponent } from '@baf/ui/input';
 
 import { SearchDestinationService } from './search-destination.service';
 
@@ -20,7 +19,7 @@ export interface SearchDestinationOptions extends SearchFieldOptions {
 @Component({
   selector: 'baf-search-destination',
   standalone: true,
-  imports: [InputComponent, AutocompleteComponent],
+  imports: [AutocompleteComponent],
   templateUrl: './search-destination.component.html',
   styleUrl: './search-destination.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -12,7 +12,6 @@ import {
   SearchReverseComponent,
 } from '@baf/search/ui/fields';
 import { SearchFormComponent } from '@baf/search/ui/form';
-import { ButtonComponent } from '@baf/ui/buttons';
 
 @Component({
   selector: 'baf-search-railway-form',
@@ -24,7 +23,6 @@ import { ButtonComponent } from '@baf/ui/buttons';
     SearchReverseComponent,
     SearchDateComponent,
     SearchPassengersComponent,
-    ButtonComponent,
   ],
   templateUrl: './search-railway-form.component.html',
   styleUrl: './search-railway-form.component.scss',

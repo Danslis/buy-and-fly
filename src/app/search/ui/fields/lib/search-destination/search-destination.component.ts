@@ -1,12 +1,13 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, input, OnInit } from '@angular/core';
+import type { OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { FormControl } from '@angular/forms';
+import type { FormControl } from '@angular/forms';
 import { BehaviorSubject, debounceTime, EMPTY, of, switchMap, tap } from 'rxjs';
 
 //import { ExtraClassService, toClass } from '@baf/core';
-import { SearchDestination, SearchFieldOptions } from '@baf/search/common';
-import { AutocompleteComponent, AutocompleteOptions } from '@baf/ui/autocomplete';
-import { InputComponent } from '@baf/ui/input';
+import type { SearchDestination, SearchFieldOptions } from '@baf/search/common';
+import type { AutocompleteOptions } from '@baf/ui/autocomplete';
+import { AutocompleteComponent } from '@baf/ui/autocomplete';
 
 import { SearchDestinationService } from './search-destination.service';
 
@@ -18,7 +19,7 @@ export interface SearchDestinationOptions extends SearchFieldOptions {
 @Component({
   selector: 'baf-search-destination',
   standalone: true,
-  imports: [InputComponent, AutocompleteComponent],
+  imports: [AutocompleteComponent],
   templateUrl: './search-destination.component.html',
   styleUrl: './search-destination.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

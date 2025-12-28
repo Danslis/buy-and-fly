@@ -3,12 +3,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { AccordionComponent } from '@baf/ui/accordion';
 import { HeadlineComponent } from '@baf/ui/headline';
-import { ArrowDownComponent, ArrowUpComponent } from '@baf/ui/icons';
 
 @Component({
   selector: 'baf-questions',
   standalone: true,
-  imports: [HeadlineComponent, CdkAccordionModule, ArrowDownComponent, ArrowUpComponent, AccordionComponent],
+  imports: [HeadlineComponent, CdkAccordionModule, AccordionComponent],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

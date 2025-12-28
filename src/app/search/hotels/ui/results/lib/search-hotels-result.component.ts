@@ -1,7 +1,7 @@
-import { AsyncPipe, CurrencyPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, tap } from 'rxjs';
+import { switchMap } from 'rxjs';
 
 import { SearchHotelService } from '@baf/search/hotels/services';
 
@@ -10,7 +10,7 @@ import { SearchHotelCardComponent } from './search-hotel-card/search-hotel-card.
 @Component({
   selector: 'baf-search-hotels-result',
   standalone: true,
-  imports: [AsyncPipe, CurrencyPipe, SearchHotelCardComponent],
+  imports: [AsyncPipe, SearchHotelCardComponent],
   providers: [SearchHotelService],
   templateUrl: './search-hotels-result.component.html',
   styleUrl: './search-hotels-result.component.scss',

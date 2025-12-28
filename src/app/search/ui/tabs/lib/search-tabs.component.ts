@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 
-import { PathPipe } from '@baf/core';
 import { SearchType } from '@baf/search/common';
 
 export interface SearchTab {
@@ -13,7 +11,6 @@ export interface SearchTab {
 @Component({
   selector: 'baf-search-tabs',
   standalone: true,
-  imports: [RouterLink, PathPipe, RouterLinkActive],
   templateUrl: './search-tabs.component.html',
   styleUrl: './search-tabs.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

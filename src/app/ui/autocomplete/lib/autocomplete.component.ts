@@ -1,5 +1,5 @@
 import { CdkConnectedOverlay, CdkOverlayOrigin } from '@angular/cdk/overlay';
-import { AsyncPipe, NgForOf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import type { Signal } from '@angular/core';
 import { ChangeDetectionStrategy, Component, ElementRef, input, output, signal, viewChild } from '@angular/core';
 import type { FormControl } from '@angular/forms';
@@ -31,7 +31,6 @@ export interface AutocompleteOptions {
     CdkConnectedOverlay,
     CdkOverlayOrigin,
     InputComponent,
-    NgForOf,
     AsyncPipe,
     InputControlComponent,
     InputDisplayDirective,

@@ -8,11 +8,9 @@ import {
   SearchDateComponent,
   SearchDestinationComponent,
   SearchGroupComponent,
-  SearchPassengersComponent,
-  SearchReverseComponent,
+  SearchPassengersComponent
 } from '@baf/search/ui/fields';
 import { SearchFormComponent } from '@baf/search/ui/form';
-import { ButtonComponent } from '@baf/ui/buttons';
 
 @Component({
   selector: 'baf-search-hotel-form',
@@ -21,10 +19,8 @@ import { ButtonComponent } from '@baf/ui/buttons';
     SearchFormComponent,
     SearchGroupComponent,
     SearchDestinationComponent,
-    SearchReverseComponent,
     SearchDateComponent,
     SearchPassengersComponent,
-    ButtonComponent,
   ],
   templateUrl: './search-hotel-form.component.html',
   styleUrl: './search-hotel-form.component.scss',

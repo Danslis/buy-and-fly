@@ -1,5 +1,7 @@
-import { inject, Pipe, PipeTransform } from '@angular/core';
-import { map, Observable, of, switchMap } from 'rxjs';
+import type { PipeTransform } from '@angular/core';
+import { inject, Pipe } from '@angular/core';
+import type { Observable } from 'rxjs';
+import { map, of, switchMap } from 'rxjs';
 import { SearchService } from 'src/app/search/services/lib/search.service';
 
 @Pipe({
